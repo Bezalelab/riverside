@@ -1,6 +1,6 @@
 ---
 import { Image, getImage } from 'astro:assets';
-import { Button } from '@/components/starwind/button';
+import StartSurvey from '@/components/survey/StartSurvey.tsx';
 const background = await getImage({ src: import('@/assets/roadmap/main.png'), format: 'avif' });
 ---
 
@@ -10,10 +10,9 @@ const background = await getImage({ src: import('@/assets/roadmap/main.png'), fo
     <p class="text-white mb-7.5 max-w-[526px] mx-auto text-center">
       Take our quick survey to receive your personalized step-by-step checklist for a successful roofing project based on your specific situation –
       whether you're a homeowner or contractor!
-    </p>
     <div class="flex flex-col sm:flex-row justify-center gap-5">
-      <Button class="w-full md:w-[265px] lg:w-[350px]">Are you a contractor?</Button>
-      <Button class="w-full md:w-[265px] lg:w-[350px]">Are you a homeowner?</Button>
+      <StartSurvey client:idle buttonText='Are you a contractor?' isHome userType='Contractor' className='h-12.5 lg:h-15 w-full md:w-[265px] lg:w-[350px]' />
+      <StartSurvey client:idle buttonText='Are you a homeowner?' isHome userType='Homeowner' className='h-12.5 lg:h-15 w-full md:w-[265px] lg:w-[350px]' />
     </div>
   </div>
 </section>

@@ -179,14 +179,14 @@ const menu: MenuItemType[] = [
 
             <div class="mt-10 flex flex-col gap-7.5">
               <a href="tel:+13182229999" class="text-primary text-xl">+1 (318) 222-9999</a>
-              <StartSurvey client:idle isHome={false} />
+              <StartSurvey client:idle isHome={false} buttonText='Success Survey' />
             </div>
           </div>
         </div>
       </nav>
       <div class="flex items-center gap-7.5">
         <div class="hidden lg:block">
-          <StartSurvey client:idle isHome={isHome} />
+          <StartSurvey client:idle isHome={isHome} buttonText='Success Survey' />
         </div>
         <a href="tel:+13182229999" class="text-medium underline-hover font-medium text-lg hidden xl:block" class:list={[isHome ? 'text-white' : 'text-primary']}>+1 (318) 222-9999</a>
         <button id="menu-toggle" aria-label="Menu" class="xl:hidden">

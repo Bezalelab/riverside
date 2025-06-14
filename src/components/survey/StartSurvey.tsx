@@ -10,6 +10,7 @@ import ContractorSuccessSurvey from './ContractorSuccessSurvey';
 import FreeCalculationSurvey from './FreeCalculationSurvey';
 import PdfUploadSurvey from './PdfUploadSurvey';
 import { toast } from 'sonner';
+import { cn } from '@/lib/utils';
 
 interface SurveyAnswers {
   userType?: 'Contractor' | 'Homeowner';
@@ -61,7 +62,7 @@ const UserTypeSurvey: React.FC<UserTypeSurveyProps> = ({ onNext }) => (
   </>
 );
 
-const StartSurvey = ({ isHome }: { isHome?: boolean }) => {
+const StartSurvey = ({ isHome, userType, buttonText = 'Start Survey', className }: { isHome?: boolean; userType?: 'Homeowner' | 'Contractor'; buttonText?: string; className?: string }) => {
   const [currentStep, setCurrentStep] = useState('');
   const [surveyAnswers, setSurveyAnswers] = useState<SurveyAnswers>({});
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -75,8 +76,21 @@ const StartSurvey = ({ isHome }: { isHome?: boolean }) => {
   }, []);
 
   const openSurvey = () => {
-    setCurrentStep(SURVEY_STEPS.START);
-    setProgressPercentage(0);
+    // If userType is provided, skip directly to the appropriate step
+    if (userType) {
+      if (userType === 'Homeowner') {
+        setCurrentStep(SURVEY_STEPS.PROJECT_TYPE);
+        setSurveyAnswers((prev) => ({ ...prev, userType: 'Homeowner' }));
+        setProgressPercentage(25);
+      } else if (userType === 'Contractor') {
+        setCurrentStep(SURVEY_STEPS.CONTRACTOR_FORM);
+        setSurveyAnswers((prev) => ({ ...prev, userType: 'Contractor' }));
+        setProgressPercentage(50);
+      }
+    } else {
+      setCurrentStep(SURVEY_STEPS.START);
+      setProgressPercentage(0);
+    }
     setIsDialogOpen(true);
   };
 
@@ -294,13 +308,9 @@ const StartSurvey = ({ isHome }: { isHome?: boolean }) => {
 
   return (
     <Dialog open={isDialogOpen} onOpenChange={(isOpen) => !isOpen && closeSurvey()}>
-      <DialogTrigger
-        onClick={openSurvey}
-        className={`px-5 2xl:px-10 gap-1.5 rounded-xl transition-colors font-semibold uppercase h-12.5 py-2 text-base ${isHome ? 'bg-white hover:bg-white/90 text-primary' : 'bg-primary hover:bg-primary/90 text-white'}`}
-      >
-        Success survey
+      <DialogTrigger onClick={openSurvey} className={cn('survey-button', className, ` ${isHome ? 'bg-white hover:bg-white/95 text-primary' : 'bg-primary hover:bg-primary/90 text-white'}`)}>
+        {buttonText}
       </DialogTrigger>
-
       <DialogContent>
         {isDialogOpen && (
           <div className="flex flex-col justify-between lg:flex-row">

@@ -4,7 +4,6 @@ import ArrowRightTopIcon from '@/icons/arrow-right-top.svg';
 import { getCollection } from 'astro:content';
 import { formatDate } from '@/utils';
 const posts = await getCollection('blog');
-console.log(posts[0]);
 ---
 
 <section id="blog" class="py-20 md:py-25 lg:py-40">
