@@ -1,29 +1,34 @@
 {
   "showrooms": [
     {
-      "image": "@/assets/showroom/1.png",
+      "image": "@/assets/showroom/showroom1.jpg",
       "width": 500,
       "height": 350
     },
     {
-      "image": "@/assets/showroom/1.png",
+      "image": "@/assets/showroom/showroom2.jpg",
       "width": 250,
       "height": 250
     },
     {
-      "image": "@/assets/showroom/1.png",
+      "image": "@/assets/showroom/showroom3.jpg",
       "width": 730,
       "height": 480
     },
     {
-      "image": "@/assets/showroom/1.png",
+      "image": "@/assets/showroom/showroom4.jpg",
       "width": 500,
       "height": 350
     },
     {
-      "image": "@/assets/showroom/1.png",
+      "image": "@/assets/showroom/showroom5.jpg",
       "width": 500,
       "height": 350
+    },
+    {
+      "image": "@/assets/showroom/showroom6.jpg",
+      "width": 730,
+      "height": 480
     }
   ]
 }
