@@ -2,9 +2,9 @@
 published_settings:
   published: true
   created: 2025-06-11
-title: How to choose the perfect roof for your home
-description: Guide to choosing roofing materials, taking into account climate conditions, house style, and budget.
 cover: '@/assets/blog/1.png'
+title: 'Beware of Roofing Scams: How Shreveport Homeowners Can Find Trustworthy Contractors.'
+description: Guide to choosing roofing materials, taking into account climate conditions, house style, and budget.
 ---
 Beware of Roofing Scams: How Shreveport Homeowners Can Find Trustworthy Contractors.
 
@@ -57,4 +57,4 @@ Finding the right roofing professional doesn’t have to be stressful. When you 
 
 ## Find a Riverside Trusted Contractor® Near You
 
-Give us a call today at [Phone Number] to discuss your specific roofing needs. Our team will take the time to understand your project requirements and connect you with the most suitable Riverside Trusted Contractor® for your situation. This personalized referral service is available to homeowners throughout Shreveport, Bossier City, Minden, and all surrounding communities within a 60-mile radius.
+Give us a call today at [318-222-9999](tel:318-222-9999) to discuss your specific roofing needs. Our team will take the time to understand your project requirements and connect you with the most suitable Riverside Trusted Contractor® for your situation. This personalized referral service is available to homeowners throughout Shreveport, Bossier City, Minden, and all surrounding communities within a 60-mile radius.
