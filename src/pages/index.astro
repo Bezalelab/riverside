@@ -11,39 +11,6 @@ import Hero from '@/partials/Hero.astro';
 import ShowRoom from '@/partials/ShowRoom.astro';
 import Blog from '@/partials/Blog.astro';
 import Faq from '@/partials/Faq.astro';
-
-const questions = [
-  {
-    question: 'Are you a fit for contractors or homeowners?',
-    answer:
-      'We serve both sides of the aisle! Contractors: in helping sustain and bring growth to their business with dependably quality roofing products, on time every time. Homeowners: with finding the proper product by navigation new construction, or repairs.'
-  },
-  {
-    question: 'What is the best way to get in touch with you?',
-    answer:
-      'You can reach us through our contact form on the website, by phone at (555) 123-4567, or by email at info@riverside.com. Our customer service team is available Monday to Friday from 9 AM to 5 PM.'
-  },
-  {
-    question: 'Do you offer free consultations?',
-    answer:
-      "Yes, we offer free initial consultations for all new projects. During the consultation, we'll discuss your needs, assess the scope of work, and provide you with a detailed estimate."
-  },
-  {
-    question: 'What areas do you serve?',
-    answer:
-      'We proudly serve the entire Riverside County area, including but not limited to Riverside, Corona, Moreno Valley, and Temecula. Contact us to verify if we service your specific location.'
-  },
-  {
-    question: 'How long does a typical project take?',
-    answer:
-      "Project timelines vary depending on the scope and complexity. Most residential projects take between 2-4 weeks from start to finish. We'll provide you with a detailed timeline during our initial consultation."
-  },
-  {
-    question: 'Are your contractors licensed and insured?',
-    answer:
-      'Absolutely! All our contractors are fully licensed, bonded, and insured. We take pride in maintaining the highest industry standards and can provide proof of insurance and licensing upon request.'
-  }
-];
 ---
 
 <Layout isHome>
@@ -57,5 +24,5 @@ const questions = [
   <Reviews />
   <ShowRoom />
   <Blog />
-  <Faq data={questions} />
+  <Faq />
 </Layout>

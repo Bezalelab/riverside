@@ -14,6 +14,7 @@ collections:
     label: Posts
     folder: src/data/posts
     create: true
+    icon: news
     slug: '{{slug}}'
     fields:
       - name: published_settings
@@ -43,6 +44,7 @@ collections:
         widget: markdown
   - name: reviews
     label: Reviews
+    icon: reviews
     files:
       - name: curtomers_says
         label: What our customers say
@@ -82,6 +84,7 @@ collections:
                 public_folder: '/public/reviews/owners'
   - name: showrooms
     label: Showrooms
+    icon: photo_library
     files:
       - name: items
         label: Showrooms Items
@@ -104,6 +107,7 @@ collections:
                 widget: number
   - name: faq
     label: FAQ
+    icon: help
     files:
       - name: items
         label: FAQ Items
@@ -121,6 +125,7 @@ collections:
                 widget: text
   - name: site_settings
     label: Site Settings
+    icon: settings
     files:
       - name: items
         label: Site Settings
@@ -156,3 +161,27 @@ collections:
               - name: description
                 label: Description
                 widget: text
+  - name: content_pages
+    label: Content Pages
+    icon: import_contacts
+    folder: src/data/content_pages
+    create: true
+    slug: '{{slug}}'
+    fields:
+      - name: published_settings
+        label: Published Settings
+        widget: object
+        fields:
+          - name: published
+            label: Published
+            widget: 'boolean'
+            default: true
+      - name: slug
+        label: Slug
+        widget: string
+      - name: title
+        label: Title
+        widget: string
+      - name: body
+        label: Body
+        widget: markdown

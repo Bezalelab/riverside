@@ -3,6 +3,7 @@ import { Image } from 'astro:assets';
 import Layout from '@/layouts/Layout.astro';
 import Button from '@/components/starwind/button';
 import ArrowRightTopIcon from '@/icons/arrow-right-top.svg';
+import StartSurvey from '@/components/survey/StartSurvey';
 ---
 
 <Layout>
@@ -16,10 +17,7 @@ import ArrowRightTopIcon from '@/icons/arrow-right-top.svg';
         </div>
         <div class="lg:pt-[110px]">
           <div class="max-w-[570px] space-y-3 mb-7.5">
-            <p>
-              We guarantee prompt and secure delivery of your roofing materials directly to your construction site with attention to both time and
-              space:
-            </p>
+            <p>We guarantee prompt and secure delivery of your roofing materials directly to your construction site with attention to both time and space:</p>
             <ul class="pl-5">
               <li class="list-disc">On-time delivery, every time thanks to our extensive stocking operation.</li>
               <li class="list-disc">Professional unloading by experienced specialists who ensure material integrity.</li>
@@ -28,10 +26,9 @@ import ArrowRightTopIcon from '@/icons/arrow-right-top.svg';
               <li class="list-disc">Coordinated scheduling to prevent materials from arriving too early or taking up valuable space.</li>
             </ul>
             <p class="mb-7.5">
-              At Riverside, we understand that timing and space management are critical for all roofing projects. Unlike others, we're always
-              respectful of your time and space, delivering materials precisely when needed - not too early, not too late.
+              At Riverside, we understand that timing and space management are critical for all roofing projects. Unlike others, we're always respectful of your time and space, delivering materials precisely when needed - not too early, not too late.
             </p>
-            <Button variant="primary" class="px-20" href='tel:3182229999'>Set up an order now</Button>
+            <Button variant="primary" class="px-20" href="tel:3182229999">Set up an order now</Button>
           </div>
           <div class="flex gap-5">
             <Image src={import('@/assets/services/delivery/1.png')} format="avif" alt="Delivery" class="min-h-[220px] rounded-xl size-full object-cover" />
@@ -84,10 +81,7 @@ import ArrowRightTopIcon from '@/icons/arrow-right-top.svg';
         </div>
         <div class="lg:pt-[110px]">
           <div class="space-y-3 mb-7.5">
-            <p>
-              Want to know exactly what materials you'll need for your roofing project? We'll provide a comprehensive estimate within one business
-              day.
-            </p>
+            <p>Want to know exactly what materials you'll need for your roofing project? We'll provide a comprehensive estimate within one business day.</p>
             <p>Simply:</p>
             <ul class="pl-5">
               <li class="list-disc">See if you qualify (Click on the success survey)</li>
@@ -102,7 +96,7 @@ import ArrowRightTopIcon from '@/icons/arrow-right-top.svg';
                   <h3 class="text-4xl lg:text-5xl font-heading text-center mb-2.5">FREE ROOFING CALCULATION</h3>
                   <p class="text-secondary font-semibold text-center">FOR NEW HOME OWNERS</p>
                 </div>
-                <Button variant="primary" class="w-full" href="#calc-form">FREE ROOFING CALCULATION</Button>
+                <StartSurvey client:idle  buttonText="FREE ROOFING CALCULATION" className="w-full h-12.5" />
               </div>
             </div>
             <a href="https://myev.eagleview.com/place-order/" target="_blank" class="bg-lightGray p-6 lg:p-7.5 md:w-1/2 h-[300px] lg:h-[408px] rounded-xl hover:scale-102 transition-transform">

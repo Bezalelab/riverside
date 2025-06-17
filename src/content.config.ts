@@ -48,4 +48,16 @@ const showrooms = defineCollection({
     )
 });
 
-export const collections = { blog, products, products_category, showrooms };
+const content_pages = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/data/content_pages' }),
+  schema: ({ image }) =>
+    z.object({
+      published_settings: z.object({
+        published: z.boolean().default(true),
+      }),
+      slug: z.string(),
+      title: z.string()
+    })
+});
+
+export const collections = { blog, products, products_category, showrooms, content_pages };
