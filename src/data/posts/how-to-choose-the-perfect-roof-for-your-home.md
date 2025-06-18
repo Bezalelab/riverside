@@ -2,9 +2,9 @@
 published_settings:
   published: true
   created: 2025-06-11
-cover: '@/assets/blog/1.png'
+cover: '@/assets/find a trusted contractor-min.jpg'
 title: 'Beware of Roofing Scams: How Shreveport Homeowners Can Find Trustworthy Contractors.'
-description: Guide to choosing roofing materials, taking into account climate conditions, house style, and budget.
+description: Avoid roofing scams in Shreveport! Learn how to choose trusted contractors with Riverside’s expert tips and Trusted Contractor® program.
 ---
 Beware of Roofing Scams: How Shreveport Homeowners Can Find Trustworthy Contractors.
 
