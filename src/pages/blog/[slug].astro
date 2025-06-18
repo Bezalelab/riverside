@@ -39,7 +39,7 @@ const { Content } = await render(post);
             <div class="flex lg:grid lg:grid-cols-2 xl:grid-cols-4 gap-2.5 md:gap-3.5 lg:gap-5">
               {recentPosts.map((post, index) => (
                 <a href={`/blog/${post.id}`} class="flex flex-col flex-[0_0_90%] md:flex-[0_0_49%] lg:flex-auto">
-                  <Image src={import('@/assets/blog/post.png')} alt="post" class="min-h-[260px] object-cover rounded-xl mb-3.75" />
+                  <Image src={post.data.cover} alt="post" class="min-h-[260px] object-cover rounded-xl mb-3.75" />
                   <h3 class="text-xl/6 mb-5">{post.data.title}</h3>
                   <p class="text-secondary mb-5 max-w-[320px]">{post.data.description}</p>
                   <span>{formatDate(post.data.published_settings.created)}</span>
