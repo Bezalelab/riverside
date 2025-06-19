@@ -68,4 +68,4 @@ With over 30 years serving Shreveport, [Riverside Roofing Materials](https://riv
 
 ## Call to Action
 
-Ready to find the perfect roofing material for your Shreveport home? Contact Riverside Roofing Materials at (318) 222-9999 or visit our [showroom](https://riversideroofingmaterials.com/#touchroom) at 975 Louisiana Avenue, Shreveport, LA 71101. Not sure where to start? Fill out our [inquiry form](https://riversideroofingmaterials.com/contact) or take our success survey for a custom checklist to guide your roofing project. Let us help you protect your home with the best roofing materials available!
+Ready to find the perfect roofing material for your Shreveport home? Contact Riverside Roofing Materials at (318) 222-9999 or visit our [showroom](https://riversideroofingmaterials.com/#touchroom) at 975 Louisiana Avenue, Shreveport, LA 71101. Not sure where to start? Fill out our [inquiry form](https://riversideroofingmaterials.com/contact) or click "Start Here" at the top for a custom checklist to guide your roofing project. Let us help you protect your home with the best roofing materials available!

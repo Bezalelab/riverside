@@ -49,14 +49,14 @@ Here are the key indicators to watch for:
 
 - **What to look for**: A sagging roofline or cracked rafters in the attic.
 - **Why it matters**: Structural issues indicate serious damage that requires immediate replacement.
-- **Riverside’s Solution**: We provide high-quality materials and connect you with trusted Shreveport contractors through our Trusted Contractor Network. Fill our Success Survey to find your trusted contractor!
+- **Riverside’s Solution**: We provide high-quality materials and connect you with trusted Shreveport contractors through our Trusted Contractor Network. CLick "Start Here" at the top to find your trusted contractor!
 
 ## What to Do If You Spot These Signs
 
 1. **Inspect Your Roof**: Safely check for visible damage or hire a professional.
-2. **Contact Riverside**: Call us at (318) 222-9999 or complete the success survey to discuss your needs.
+2. **Contact Riverside**: Call us at (318) 222-9999 or complete the "Start Here" survey to discuss your needs.
 3. **Choose Quality Materials**: Our team will recommend products tailored to your budget and Shreveport’s climate.
-4. **Work with Trusted Contractors**: We connect homeowners with reliable local contractors for expert installation via our Success Survey.
+4. **Work with Trusted Contractors**: We connect homeowners with reliable local contractors for expert installation via our "Start Here" Survey.
 
 ## Why Choose Riverside Roofing Materials?
 
@@ -67,4 +67,4 @@ Here are the key indicators to watch for:
 
 ## Why wait any longer?
 
-Don’t wait for roof damage to worsen. If you’ve noticed any of these signs, contact Riverside Roofing Materials today at (318) 222-9999 or visit our [showroom](https://riversideroofingmaterials.com/products#showroom) at 975 Louisiana Avenue, Shreveport, LA 71101. Let our team help you select the best materials for your roof replacement. Fill out our [inquiry form](https://riversideroofingmaterials.com/contact) or take our [success survey](https://riversideroofingmaterials.com/services#success-survey) for a custom checklist to ensure your project’s success!
+Don’t wait for roof damage to worsen. If you’ve noticed any of these signs, contact Riverside Roofing Materials today at (318) 222-9999 or visit our [showroom](https://riversideroofingmaterials.com/products#showroom) at 975 Louisiana Avenue, Shreveport, LA 71101. Let our team help you select the best materials for your roof replacement. Fill out our [inquiry form](https://riversideroofingmaterials.com/contact) or take our "Start Here" survey for a custom checklist to ensure your project’s success!
