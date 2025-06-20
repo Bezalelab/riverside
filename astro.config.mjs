@@ -3,7 +3,6 @@ import { defineConfig, fontProviders } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import react from '@astrojs/react';
 import netlify from '@astrojs/netlify';
-import favicons from 'astro-favicons';
 import sitemap from '@astrojs/sitemap';
 // https://astro.build/config
 export default defineConfig({
@@ -27,6 +26,6 @@ export default defineConfig({
     plugins: [tailwindcss()]
   },
 
-  integrations: [react(), favicons(), sitemap()],
+  integrations: [react(), sitemap()],
   adapter: netlify()
 });
