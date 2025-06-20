@@ -25,12 +25,12 @@ const socialLinks = [
   <div class="container z-2 relative">
     <p class="font-semibold mb-5 lg:mb-6 uppercase">Looking for something else?</p>
     <h2 class="section-title text-white mb-5">Talk with a product specialist</h2>
-    <p class="max-w-[570px] mb-10 lg:mb-15">If you don’t see what you’re looking for, the best thing to do is give us a quick call or fill out the following inquiry form. We carry all essential roofing materials, so you’re probably covered!</p>
+    <p class="max-w-[570px] mb-10 lg:mb-15">If you don’t see what you’re looking for, the best thing to do is give us a quick call or fill out the following form. We carry all essential roofing materials, so you’re probably covered!</p>
 
     <form id="footer-contact-form" class="grid md:grid-cols-2 gap-4 md:gap-x-5 md:gap-y-7.5 mb-15 lg:mb-30" onsubmit="event.preventDefault(); handleFooterFormSubmit(event)">
       <FloatingInput label="Name" placeholder="Name" id="name" name="name" required />
       <FloatingInput label="Phone" placeholder="Phone" id="phone" name="phone" required />
-      <FloatingInput label="Inquiry" placeholder="Inquiry" id="inquiry" name="inquiry" required />
+      <FloatingInput label="Message" placeholder="Inquiry" id="inquiry" name="inquiry" required />
       <Button type="submit" id="footer-submit-btn">
         <span id="submit-text">Send</span>
         <span id="submit-spinner" class="hidden">Sending...</span>

@@ -11,7 +11,7 @@ const FreeCalculationSurvey: React.FC<FreeCalculationSurveyProps> = ({ onNext })
     <>
       <DialogHeader className="mb-6">
         <DialogTitle className="text-4xl md:text-5xl font-heading leading-none uppercase">
-          HERE’s a gift from US… <br></br> <span className="line-through"> $99</span> FREE ROOFING CALCULATION
+          HERE’s a gift from US… <br></br> <span className="line-through"> $99</span> FREE MATERIALS ESTIMATE
         </DialogTitle>
       </DialogHeader>
       <div className="flex flex-col md:flex-row items-center gap-4 mt-8">
