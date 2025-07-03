@@ -2,10 +2,10 @@
 import { Image } from 'astro:assets';
 import Button from '@/components/starwind/button';
 import { getEntry } from 'astro:content';
-const showrooms =  await getEntry('showrooms', 'showrooms');
+const showrooms = await getEntry('showrooms', 'showrooms');
 ---
 
-<section id="touchroom">
+<section id="touchroom" class="pt-20 md:pt-25 lg:pt-40">
   <div class="container">
     <span class="section-pretitle block uppercase mb-5">SeE & Touch our products in person</span>
     <div class="flex flex-col lg:flex-row gap-20 lg:items-end justify-between mb-7.5">
@@ -17,7 +17,7 @@ const showrooms =  await getEntry('showrooms', 'showrooms');
         {
           showrooms?.data?.map((item, index) => (
             <div data-width={item.width} data-height={item.height} class=" rounded-xl min-w-0 overflow-hidden showroom-image mr-2.5 md:mr-5">
-              <Image src={item.image} class="size-full object-cover" alt='riverside showroom' />
+              <Image src={item.image} class="size-full object-cover" alt="riverside showroom" />
             </div>
           ))
         }
