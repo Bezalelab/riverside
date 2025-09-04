@@ -14,6 +14,8 @@ import LadderStabilizer from '@/assets/products/category/accesories/ladder-stabi
 import PitchFinder from '@/assets/products/category/accesories/pitch-finder.png';
 import PitchHoppers from '@/assets/products/category/accesories/pitch-hoppers.avif';
 import ShingleGauges from '@/assets/products/category/accesories/shingle-gauges.jpg';
+import LeafGuard from '@/assets/products/category/accesories/shingle-gauges.jpg';
+
 
 // Commercial images
 import AppModifiedBitumen from '@/assets/products/category/commercial/app-modified-bitumen.jpeg';
@@ -21,7 +23,7 @@ import SAModifiedBitumen from '@/assets/products/category/commercial/sa-modified
 import SBSModifiedBitumen from '@/assets/products/category/commercial/sbs-modified-bitumen.avif';
 import CommercialTPO from '@/assets/products/category/commercial/commercial-tpo.jpeg';
 
-// Resudential Image
+// Residential images
 import Certainteed from '@/assets/products/category/residential/certainteed.jpg';
 import NonWarranty from '@/assets/products/category/residential/non-warrantied.jpg';
 
@@ -40,7 +42,8 @@ const productImageMap: ProductImageMapType = {
   'ladder-stabilizer': LadderStabilizer,
   'pitch-finder': PitchFinder,
   'pitch-hoppers': PitchHoppers,
-  shinglegauges: ShingleGauges,
+  'shinglegauges': ShingleGauges,
+  'leaf-guard': LeafGuard, //
 
   // Commercial category
   'app-modified-bitumen': AppModifiedBitumen,
@@ -51,6 +54,12 @@ const productImageMap: ProductImageMapType = {
   // Residential category
   'certainteed-shingles': Certainteed,
   'non-warranty-shingles': NonWarranty
+};
+
+// Define which products should show videos on hover
+// Using a known YouTube video with audio for testing
+const productVideoMap = {
+  'leaf-guard': 'ZynzHmzB25o' //
 };
 ---
 
@@ -78,9 +87,46 @@ const productImageMap: ProductImageMapType = {
                 .filter((item) => item.data.category.toLowerCase() === category.id)
                 .map((item) => {
                   const productImage = item.id in productImageMap ? productImageMap[item.id] : category.data.cover;
+                  const hasVideo = item.id in productVideoMap;
+
                   return (
                     <div class="rounded-xl overflow-hidden h-full pb-7.5 md:py-6 lg:pr-7.5 lg:py-7.5 absolute top-0 left-0 w-full">
-                      <Image src={productImage} alt={item.data.title} class="object-cover rounded-xl size-full product-image opacity-0 transition-opacity duration-300" data-category={category.id} data-product={item.id} />
+                      {hasVideo ? (
+                        <>
+                          {/* Show image by default */}
+                          <Image
+                            src={productImage}
+                            alt={item.data.title}
+                            class="object-cover rounded-xl size-full product-image opacity-0 transition-opacity duration-300"
+                            data-category={category.id}
+                            data-product={item.id}
+                          />
+                          {/* Video container with YouTube iframe */}
+                          <div
+                            class="video-container rounded-xl size-full absolute top-0 left-0 opacity-0 transition-opacity duration-300"
+                            data-category={category.id}
+                            data-product={item.id}
+                            data-video-id={productVideoMap[item.id]}
+                          >
+                            <iframe
+                              class="size-full rounded-xl"
+                              data-src={`https://www.youtube.com/embed/${productVideoMap[item.id]}`}
+                              title={item.data.title}
+                              frameborder="0"
+                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                              allowfullscreen
+                            ></iframe>
+                          </div>
+                        </>
+                      ) : (
+                        <Image
+                          src={productImage}
+                          alt={item.data.title}
+                          class="object-cover rounded-xl size-full product-image opacity-0 transition-opacity duration-300"
+                          data-category={category.id}
+                          data-product={item.id}
+                        />
+                      )}
                     </div>
                   );
                 })}
@@ -104,7 +150,14 @@ const productImageMap: ProductImageMapType = {
                         <span class="group-hover:pl-6 transition-all duration-300">{item.data.title}</span>
                       </a>
                     ) : (
-                      <button type="button" class="flex relative cursor-default items-center border-b gap-2 text-primary transition-all group text-left product-button" data-category={category.id} data-product={item.id} data-image-id={item.id}>
+                      <button
+                        type="button"
+                        class="flex relative cursor-default items-center border-b gap-2 text-primary transition-all group text-left product-button"
+                        data-category={category.id}
+                        data-product={item.id}
+                        data-image-id={item.id}
+                        data-has-video={item.id in productVideoMap ? "true" : "false"}
+                      >
                         <span>{item.data.title}</span>
                       </button>
                     )
@@ -136,54 +189,137 @@ const productImageMap: ProductImageMapType = {
 </Layout>
 
 <style>
-  .arrow {
-    clip-path: inset(0 100% 0 0);
-    transition: clip-path 0.3s ease;
-  }
+    .arrow {
+        clip-path: inset(0 100% 0 0);
+        transition: clip-path 0.3s ease;
+    }
 
-  .group:hover .arrow {
-    clip-path: inset(0);
-  }
+    .group:hover .arrow {
+        clip-path: inset(0);
+    }
 
-  .product-image {
-    transition: opacity 0.3s ease;
-  }
+    .product-image,
+    .video-container {
+        transition: opacity 0.3s ease;
+    }
 
-  .product-image.active {
-    opacity: 1;
-  }
+    .product-image.active,
+    .video-container.active {
+        opacity: 1 !important;
+        pointer-events: auto !important;
+    }
+
+    .video-container {
+        pointer-events: none;
+    }
+
+    .video-container.active {
+        pointer-events: auto;
+        z-index: 10;
+    }
+
+    .video-container iframe {
+        pointer-events: auto;
+    }
 </style>
 
 <script>
-  // Function to show product image on hover
-  function showProductImage(categoryId: string, productId: string): void {
+  // Track if video is currently showing
+  let currentVideoProduct: string | null = null;
+  let currentVideoCategory: string | null = null;
+
+  // Function to show product image or video on hover
+  function showProductMedia(categoryId: string, productId: string, hasVideo: boolean): void {
+    // If hovering over a different product than the current video, hide everything first
+    if (currentVideoProduct && currentVideoProduct !== productId) {
+      // Stop the current video
+      const currentVideoContainer = document.querySelector(`.video-container[data-category="${currentVideoCategory}"][data-product="${currentVideoProduct}"]`);
+      if (currentVideoContainer) {
+        const iframe = currentVideoContainer.querySelector('iframe') as HTMLIFrameElement;
+        if (iframe) {
+          iframe.src = '';
+        }
+        currentVideoContainer.classList.remove('active');
+        (currentVideoContainer as HTMLElement).style.opacity = '0';
+      }
+      currentVideoProduct = null;
+      currentVideoCategory = null;
+    }
+
     // Hide all images for this category
-    document.querySelectorAll(`.product-image[data-category="${categoryId}"]`).forEach((img) => {
-      img.classList.remove('active');
-      (img as HTMLElement).style.opacity = '0';
+    document.querySelectorAll(`.product-image[data-category="${categoryId}"]`).forEach((media) => {
+      media.classList.remove('active');
+      (media as HTMLElement).style.opacity = '0';
     });
 
-    // Show the specific product image
-    const targetImage = document.querySelector(`.product-image[data-category="${categoryId}"][data-product="${productId}"]`);
-    if (targetImage) {
-      targetImage.classList.add('active');
-      (targetImage as HTMLElement).style.opacity = '1';
+    // Hide other video containers in this category
+    document.querySelectorAll(`.video-container[data-category="${categoryId}"]`).forEach((media) => {
+      const mediaProduct = media.getAttribute('data-product');
+      if (mediaProduct !== productId) {
+        media.classList.remove('active');
+        (media as HTMLElement).style.opacity = '0';
+        const iframe = media.querySelector('iframe') as HTMLIFrameElement;
+        if (iframe) {
+          iframe.src = '';
+        }
+      }
+    });
+
+    if (hasVideo) {
+      // Show the YouTube video
+      const videoContainer = document.querySelector(`.video-container[data-category="${categoryId}"][data-product="${productId}"]`);
+
+      if (videoContainer) {
+        videoContainer.classList.add('active');
+        (videoContainer as HTMLElement).style.opacity = '1';
+
+        const iframe = videoContainer.querySelector('iframe') as HTMLIFrameElement;
+
+        // Always refresh the src when hovering to ensure video loads
+        if (iframe && iframe.getAttribute('data-src')) {
+          const videoSrc = iframe.getAttribute('data-src') || '';
+          // Only set if different or empty
+          if (iframe.src !== videoSrc) {
+            iframe.src = videoSrc;
+          }
+        }
+
+        // Track current video
+        currentVideoProduct = productId;
+        currentVideoCategory = categoryId;
+      }
+    } else {
+      // Show the specific product image
+      const targetImage = document.querySelector(`.product-image[data-category="${categoryId}"][data-product="${productId}"]`);
+
+      if (targetImage) {
+        targetImage.classList.add('active');
+        (targetImage as HTMLElement).style.opacity = '1';
+      }
     }
   }
 
-  // Function to show default category image when mouse leaves
-  function showDefaultImage(categoryId: string): void {
-    // Hide all images for this category
-    document.querySelectorAll(`.product-image[data-category="${categoryId}"]`).forEach((img) => {
-      img.classList.remove('active');
-      (img as HTMLElement).style.opacity = '0';
-    });
+  // Function to show default category image when mouse leaves (modified for video persistence)
+  function showDefaultImage(categoryId: string, productId: string, hasVideo: boolean): void {
+    // If leaving a video product, DON'T hide it - it stays visible
+    if (hasVideo && productId === currentVideoProduct) {
+      return; // Exit early, keep video showing
+    }
 
-    // Show the default image
-    const defaultImage = document.querySelector(`.product-image[data-category="${categoryId}"][data-product="default"]`);
-    if (defaultImage) {
-      defaultImage.classList.add('active');
-      (defaultImage as HTMLElement).style.opacity = '1';
+    // Only restore default if we're not showing a video in this category
+    if (!currentVideoProduct || currentVideoCategory !== categoryId) {
+      // Hide all images for this category
+      document.querySelectorAll(`.product-image[data-category="${categoryId}"]`).forEach((media) => {
+        media.classList.remove('active');
+        (media as HTMLElement).style.opacity = '0';
+      });
+
+      // Show the default image
+      const defaultImage = document.querySelector(`.product-image[data-category="${categoryId}"][data-product="default"]`);
+      if (defaultImage) {
+        defaultImage.classList.add('active');
+        (defaultImage as HTMLElement).style.opacity = '1';
+      }
     }
   }
 
@@ -192,9 +328,17 @@ const productImageMap: ProductImageMapType = {
     document.querySelectorAll('.product-button').forEach((button) => {
       const categoryId = button.getAttribute('data-category') || '';
       const productId = button.getAttribute('data-product') || '';
+      const hasVideo = button.getAttribute('data-has-video') === 'true';
 
-      button.addEventListener('mouseover', () => showProductImage(categoryId, productId));
-      button.addEventListener('mouseleave', () => showDefaultImage(categoryId));
+      button.addEventListener('mouseover', () => showProductMedia(categoryId, productId, hasVideo));
+      button.addEventListener('mouseleave', () => showDefaultImage(categoryId, productId, hasVideo));
+    });
+
+    // Add click handler to stop video propagation when clicking on iframe area
+    document.querySelectorAll('.video-container').forEach((container) => {
+      container.addEventListener('click', (e) => {
+        e.stopPropagation();
+      });
     });
   });
 </script>
